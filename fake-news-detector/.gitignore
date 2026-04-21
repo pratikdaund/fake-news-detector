@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Dataset - too large for Git, download separately
+data/*.csv
+
+# Models - optional: if large, use Git LFS or keep local
+# Comment out the lines below if you WANT to commit models for deployment
+# (recommended for logreg; lstm may be too large)
+# models/*.keras
+# models/*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml

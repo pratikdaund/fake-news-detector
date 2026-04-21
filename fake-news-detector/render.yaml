@@ -1,0 +1,19 @@
+# Render Blueprint - automatically configures the deployment.
+# Commit this file to Git and Render will use it.
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: fake-news-detector
+    runtime: python
+    region: oregon           # Closest free region to most users; change if needed
+    plan: free
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: STREAMLIT_SERVER_MAX_UPLOAD_SIZE
+        value: "50"
+    healthCheckPath: /
+    autoDeploy: true
