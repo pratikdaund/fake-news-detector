@@ -65,8 +65,8 @@ def load_logreg():
         with open(os.path.join(MODELS_DIR, "tfidf_vectorizer.pkl"), "rb") as f:
             vec = pickle.load(f)
         return model, vec
-    except FileNotFoundError:
-        return None, None
+        if model is None:
+            return None
 
 
 @st.cache_resource
